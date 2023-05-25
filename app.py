@@ -39,6 +39,7 @@ def get_args():
 
     return args
 
+keyboard = Controller()
 
 def main():
     # Argument parsing #################################################################
@@ -171,6 +172,14 @@ def main():
                     keypoint_classifier_labels[hand_sign_id],
                     point_history_classifier_labels[most_common_fg_id[0][0]],
                 )
+                
+                #print(hand_sign_id)
+                if hand_sign_id == 0:
+                    keyboard.release('3')
+                    keyboard.press('4')
+                elif hand_sign_id == 1:
+                    keyboard.release('4')
+                    keyboard.press('3')
         else:
             point_history.append([0, 0])
 
